@@ -373,6 +373,8 @@ table.meta tr.dimhead td{background:var(--dc); color:#000; font-family:var(--dis
 ol.howto{margin:0 0 6px 20px; color:#222; font-size:13.5px; line-height:1.7; max-width:980px}
 ol.howto li{padding-left:4px}
 .ranknote{margin-top:16px; padding-top:12px; border-top:1px dashed var(--line-2); font-size:11.5px; line-height:1.55; color:var(--muted)}
+.yeartoggle button:disabled{opacity:.35; cursor:not-allowed; background:transparent !important; color:var(--faint) !important}
+.yeartoggle.locked .lab::after{content:' · both editions'; text-transform:none; letter-spacing:0; font-weight:600}
 </style>
 </head>
 <body>
@@ -593,7 +595,10 @@ ol.howto li{padding-left:4px}
       </div>
       <h3 style="margin-top:14px">This edition</h3>
       <div class="about-p">
-        This edition, calculated by <b>ICIC (Initiative for a Competitive Inner City)</b>, applies the framework to <b>384 U.S. metropolitan statistical areas</b> in two snapshots, <b>2018 and 2023</b>, aggregating <b>45 indicators</b> into <b>12 components</b> and <b>3 dimensions</b>. Every value is scaled from 0 to 100, where higher is always better. Download the dataset in your account under "Resources".
+        This edition, calculated by the <b>Social Progress Imperative</b> in partnership with <b>ICIC (Initiative for a Competitive Inner City)</b>, applies the framework to <b>384 U.S. metropolitan statistical areas</b> in two snapshots, <b>2018 and 2023</b>, aggregating <b>45 indicators</b> into <b>12 components</b> and <b>3 dimensions</b>. Every value is scaled from 0 to 100, where higher is always better. The underlying dataset can be downloaded from your Social Progress account under <b>Resources</b>.</div>
+      <div class="btnrow" style="margin-top:10px">
+        <a class="btn" href="https://www.socialprogress.org/user-dashboard" target="_blank" rel="noopener">Download the dataset (Resources) <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+        <a class="btn ghost" href="https://www.socialprogress.org/login" target="_blank" rel="noopener">Log in to socialprogress.org</a>
       </div>
       <h3 style="margin-top:14px">The framework</h3>
       <div class="about-grid">
@@ -618,7 +623,7 @@ ol.howto li{padding-left:4px}
       </div>
       <h3 style="margin-top:22px">How to use this tool</h3>
       <div class="about-p">
-        Use the control at the top of the page to switch between the <b>2018</b> edition, the <b>2023</b> edition, and the <b>percent change from 2018 to 2023</b>. Metros are grouped into three size categories based on 2018 Census Bureau population estimates, and national and size-category figures are unweighted averages across metro areas. Positive changes appear in green and negative changes in red throughout the tool.
+        Use the <b>Show</b> control at the top right of the page to switch between the <b>2018</b> edition, the <b>2023</b> edition, and the <b>percent change from 2018 to 2023</b>; your choice applies to every tab except <b>2018 vs 2023</b>, which always compares both editions. Metros are grouped into three size categories based on 2018 Census Bureau American Community Survey (ACS) population estimates, and national and size-category figures are unweighted averages across metro areas. Positive changes appear in green and negative changes in red throughout the tool.
       </div>
       <div class="sizedefs" id="sizeDefs"></div>
       <h3 style="margin-top:22px">Finding how your metro changed since 2018</h3>
@@ -629,7 +634,7 @@ ol.howto li{padding-left:4px}
         <li>The scorecard now shows the percent change of the SPI, its 3 dimensions and 12 components; the chart below it shows the change in each of the 45 indicators. All ranks on the page become ranks by percent change.</li>
         <li>To put several metros side by side, including the change in score points, use the <b>Compare</b> tab.</li>
       </ol>
-      <div class="btnrow"><button class="btn" onclick="setYear('chg'); switchView('metros');">Take me to metro changes</button></div>
+      <div class="btnrow"><button class="btn" onclick="switchView('metros'); setYear('chg');">Take me to metro changes</button></div>
       <h3 style="margin-top:22px">How ranks are calculated</h3>
       <div class="about-p" id="rankNoteAbout"></div>
       <div class="brandrow">
@@ -656,7 +661,7 @@ ol.howto li{padding-left:4px}
     </div>
     <div class="panel" id="metaPanel">
       <div class="meta-intro">
-        This tool presents the <b>Social Progress Index (SPI)</b> calculated by ICIC for United States metropolitan statistical areas in two editions, <b>2018</b> and <b>2023</b>. The index aggregates <b>45 indicators</b> into <b>12 components</b> and <b>3 dimensions</b> — Basic Human Needs, Foundations of Wellbeing and Opportunity — on a 0–100 scale where higher is always better; indicators measuring negative outcomes are inverted during scaling. The tool covers the <b>384 metropolitan areas</b> of the 50 states and the District of Columbia. Metros are grouped into three size categories — small (fewer than 500,000 residents), medium (500,000 to 999,999) and large (1,000,000 or more) — based on 2018 Census Bureau population estimates; size-category and national figures are unweighted averages across metro areas. Metro coordinates for the map come from the Census Bureau gazetteer. Each edition draws on the most recent data available at the time, so the "data vintage" columns below show the actual reference year of every indicator in the 2018 and 2023 calculations. Percent changes compare the 2023 edition against the 2018 edition for each measure.
+        This tool presents the <b>Social Progress Index (SPI)</b> calculated by the Social Progress Imperative in partnership with ICIC (Initiative for a Competitive Inner City) for United States metropolitan statistical areas in two editions, <b>2018</b> and <b>2023</b>. The index aggregates <b>45 indicators</b> into <b>12 components</b> and <b>3 dimensions</b> — Basic Human Needs, Foundations of Wellbeing and Opportunity — on a 0–100 scale where higher is always better; indicators measuring negative outcomes are inverted during scaling. The tool covers the <b>384 metropolitan areas</b> of the 50 states and the District of Columbia. Metros are grouped into three size categories — small (fewer than 500,000 residents), medium (500,000 to 999,999) and large (1,000,000 or more) — based on 2018 Census Bureau American Community Survey (ACS) population estimates; size-category and national figures are unweighted averages across metro areas. Metro coordinates for the map come from the Census Bureau gazetteer. Each edition draws on the most recent data available at the time, so the "data vintage" columns below show the actual reference year of every indicator in the 2018 and 2023 calculations. Percent changes compare the 2023 edition against the 2018 edition for each measure.
       </div>
       <div class="meta-grid" id="metaCards"></div>
       <div class="meta-table-wrap">
@@ -670,7 +675,7 @@ ol.howto li{padding-left:4px}
     <a class="btn" href="https://www.socialprogress.org/contact" target="_blank" rel="noopener">Contact us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
   </div>
   <div class="footer">
-    <div>Source: ICIC &amp; Social Progress Imperative — Social Progress Index for U.S. metropolitan areas, 2018 &amp; 2023 calculations. Metro size categories follow 2018 Census Bureau population estimates. Indicators in scaled values 0–100 (higher = better). Size-category and national figures are unweighted averages across metro areas. Scores are shown with two decimals; ranks are calculated on scores with four decimals (see About).</div>
+    <div>Source: ICIC &amp; Social Progress Imperative — Social Progress Index for U.S. metropolitan areas, 2018 &amp; 2023 calculations. Metro size categories follow 2018 Census Bureau American Community Survey (ACS) population estimates. Indicators in scaled values 0–100 (higher = better). Size-category and national figures are unweighted averages across metro areas. Scores are shown with two decimals; ranks are calculated on scores with four decimals (see About).</div>
     <div>ICIC · Initiative for a Competitive Inner City &nbsp;·&nbsp; Social Progress Imperative</div>
   </div>
 </main>
@@ -697,6 +702,7 @@ const C = {
 const GROUP_COLORS = { SM: '#D65894', MD: '#637EBF', LG: '#3B666F' };
 const GROUP_ORDER = ['SM', 'MD', 'LG'];
 const GROUP_SHORT = { SM: 'Small metros', MD: 'Medium metros', LG: 'Large metros' };
+const GROUP_ONE = { SM: 'Small metro', MD: 'Medium metro', LG: 'Large metro' };
 const GROUP_DEF = { SM: 'Fewer than 500,000 residents', MD: '500,000 to 999,999 residents', LG: '1,000,000 residents or more' };
 /* s = [spi, bhn, fow, opp, nbmc, ws, sh, ps, abk, aic, hw, eq, pr, pfc, inc, aae] */
 const DIMS = [
@@ -1495,8 +1501,37 @@ function renderCmpChips() {
       renderCompare();
     }));
 }
+/* dashed reference line (e.g. U.S. metro average) for bar charts: options.plugins.refLine = { value, label } */
+const refLinePlugin = {
+  id: 'refLine',
+  afterDatasetsDraw(chart, _a, o) {
+    if (!o || o.value == null || !isFinite(o.value)) return;
+    const { ctx, chartArea: A, scales: { y } } = chart;
+    const py = y.getPixelForValue(o.value);
+    if (py < A.top - 1 || py > A.bottom + 1) return;
+    ctx.save();
+    ctx.strokeStyle = '#6B7C8F'; ctx.lineWidth = 1.6; ctx.setLineDash([6, 5]);
+    ctx.beginPath(); ctx.moveTo(A.left, py); ctx.lineTo(A.right, py); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font = "700 10.5px 'Instrument Sans','Segoe UI',sans-serif";
+    const t = o.label, w = ctx.measureText(t).width;
+    const above = py - A.top > 22;
+    ctx.fillStyle = 'rgba(255,255,255,.92)';
+    ctx.fillRect(A.right - w - 10, above ? py - 18 : py + 3, w + 8, 15);
+    ctx.fillStyle = '#4A5868'; ctx.textAlign = 'right'; ctx.textBaseline = 'top';
+    ctx.fillText(t, A.right - 6, above ? py - 16 : py + 5);
+    ctx.restore();
+  }
+};
+/* U.S. metro average = unweighted mean across all metros (same definition as the national figures) */
+function usAvg(metric, y) {
+  const v = DATA.msas.map(m => metricValue(row(m, y), metric)).filter(x => x != null);
+  return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null;
+}
 function renderChangeCharts() {
   const mm = metricMeta(state.cmpMetric);
+  const usA = usAvg(state.cmpMetric, 2018), usB = usAvg(state.cmpMetric, 2023);
+  const usRef = { lvl: (usA == null || usB == null) ? null : usB - usA, pc: pct(usA, usB) };
   $('lvlTitle').textContent = `Level change 2018 → 2023 · ${mm.name} (points)`;
   $('pctTitle').textContent = `Percent change 2018 → 2023 · ${mm.name}`;
   const rows = state.cmp.map((code, i) => {
@@ -1512,19 +1547,26 @@ function renderChangeCharts() {
         backgroundColor: rows.map(o => hexA(signColor(o[key]), .78)),
         hoverBackgroundColor: rows.map(o => signColor(o[key])), borderRadius: 6, barPercentage: .62 }]
     },
+    plugins: [refLinePlugin],
     options: {
       maintainAspectRatio: false,
       scales: {
         x: { grid: { display: false }, ticks: { color: C.txt, font: { size: 10.5 } } },
-        y: { grid: { color: C.grid }, ticks: { color: C.faint, callback: v => key === 'pc' ? v + '%' : v } }
+        y: { grid: { color: C.grid }, ticks: { color: C.faint, callback: v => key === 'pc' ? v + '%' : v },
+             /* keep the average line inside the plot even when it lies beyond the selected metros */
+             suggestedMin: Math.min(0, usRef[key] ?? 0), suggestedMax: Math.max(0, usRef[key] ?? 0) }
       },
-      plugins: { tooltip: { callbacks: {
-        title: items => rows[items[0].dataIndex].m.n,
-        label: ctx => {
-          const o = rows[ctx.dataIndex];
-          return [` ${key === 'pc' ? 'Percent change' : 'Level change'}: ${fmt(ctx.parsed.y)}`, ` 2018: ${fmt2(o.a)} → 2023: ${fmt2(o.b)}`];
-        }
-      } } }
+      plugins: {
+        refLine: { value: usRef[key], label: `U.S. metro average ${fmt(usRef[key])}` },
+        tooltip: { callbacks: {
+          title: items => rows[items[0].dataIndex].m.n,
+          label: ctx => {
+            const o = rows[ctx.dataIndex];
+            return [` ${key === 'pc' ? 'Percent change' : 'Level change'}: ${fmt(ctx.parsed.y)}`, ` 2018: ${fmt2(o.a)} → 2023: ${fmt2(o.b)}`,
+                    ` U.S. metro average: ${fmt(usRef[key])}`];
+          }
+        } }
+      }
     }
   }, { size: 10.5, formatter: fmt });
   mk('chLvl', 'lvl', fmtD);
@@ -1656,6 +1698,12 @@ function renderScatterRegStats(all) {
     </div>`;
   }).join('');
 }
+/* rank by percent change 2018 → 2023 of any measure, across all metros (No. 1 = biggest gain) */
+function changeRank(m, metric) {
+  const key = 'chgm|' + metric;
+  if (!RANK_CACHE[key]) RANK_CACHE[key] = buildRank(DATA.msas, x => pct(metricValue(row(x, 2018), metric), metricValue(row(x, 2023), metric)));
+  return RANK_CACHE[key].get(m.c) || { r: '—', n: DATA.msas.length };
+}
 function renderScatter() {
   renderScatterChips();
   const met = state.scatterMetric;
@@ -1714,10 +1762,10 @@ function renderScatter() {
         callbacks: {
           title: items => byCode[items[0].raw.code].n,
           label: ctx => {
-            const p = ctx.raw; const m = byCode[p.code]; const d23 = row(m, 2023);
+            const p = ctx.raw; const m = byCode[p.code]; const cr = changeRank(m, met);
             return [` 2018: ${fmt2(p.x)} · 2023: ${fmt2(p.y)}`,
                     ` Change: ${fmtD(p.y - p.x)} points (${fmtP(pct(p.x, p.y))})`,
-                    ` ${GROUP_SHORT[m.r]} · SPI rank ${spiRank(m, 2023).r} in 2023`];
+                    ` Change rank: No. ${cr.r} of ${cr.n} · ${GROUP_ONE[m.r]}`];
           }
         }
       } }
@@ -1774,7 +1822,24 @@ function renderMeta() {
 }
 
 /* ============ navigation & mode ============ */
+/* The 2018 vs 2023 tab always shows both editions, so the Show control is locked to "Percent change"
+   there; the previous choice is restored when the user leaves the tab. */
+let yearBeforeScatter = null;
+function syncYearLock(v) {
+  const lock = v === 'scatter';
+  if (lock && yearBeforeScatter === null) { yearBeforeScatter = state.year; state.year = CHG; }
+  if (!lock && yearBeforeScatter !== null) { state.year = yearBeforeScatter; yearBeforeScatter = null; }
+  [['yr2018', 2018], ['yr2023', 2023], ['yrchg', CHG]].forEach(([id, val]) => {
+    const b = $(id);
+    b.classList.toggle('on', state.year === val); b.setAttribute('aria-pressed', state.year === val);
+    const dis = lock && val !== CHG;
+    b.disabled = dis;
+    b.title = dis ? 'Not needed here: this tab always compares 2018 with 2023' : (val === CHG ? 'Change from 2018 to 2023, in percent' : '');
+  });
+  document.querySelector('.yeartoggle').classList.toggle('locked', lock);
+}
 function switchView(v) {
+  syncYearLock(v);
   state.view = v;
   document.querySelectorAll('.tab').forEach(t => {
     const on = t.dataset.view === v;
@@ -1793,6 +1858,7 @@ function renderView(v) {
 }
 document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => switchView(t.dataset.view)));
 function setYear(y) {
+  if (state.view === 'scatter') return;
   state.year = y;
   [['yr2018', 2018], ['yr2023', 2023], ['yrchg', CHG]].forEach(([id, val]) => {
     $(id).classList.toggle('on', y === val); $(id).setAttribute('aria-pressed', y === val);
